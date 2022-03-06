@@ -4,7 +4,7 @@ const express = require('express');
 module.exports = app => {
 
   // Settings
-  	app.set('port', process.env.PORT || 3050);
+  	app.set('port', process.env.PORT || 3051);
   	app.set('json spaces', 4);
   //	app.use(bodyParser.urlencoded({ extended:true}));
   //	app.use(bodyParser.json());
