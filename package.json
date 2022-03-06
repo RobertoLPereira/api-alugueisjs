@@ -2,7 +2,7 @@
   "name": "api-alugueisjs",
   "version": "1.0.0",
   "description": "Controle de alugueis",
-  "main": "index.js",
+  "main": "babel.config",
   "dependencies": {
     "@babel/node": "^7.0.0",
     "babel-cli": "^6.26.0",
@@ -20,8 +20,10 @@
   },
   "devDependencies": {},
   "scripts": {
-    "dev": "node index.js",
-    "start": "node index.js"
+    "build": "./node_modules/.bin/babel src --out-dir dist",
+    "babel-node": "babel-node src/index.js",
+    "dev": "nodemon --exec npm run babel-node",
+    "start": "npm run babel-node"
   },
   "repository": {
     "type": "git",
