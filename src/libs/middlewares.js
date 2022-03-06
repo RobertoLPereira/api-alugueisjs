@@ -4,6 +4,8 @@ const express = require('express');
 module.exports = app => {
 
   // Settings
+    app.set('view engine', 'ejs');
+    //app.set('views','../views');
   	app.set('port', process.env.PORT || 3051);
   	app.set('json spaces', 4);
   //	app.use(bodyParser.urlencoded({ extended:true}));
