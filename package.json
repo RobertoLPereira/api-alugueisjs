@@ -1,0 +1,36 @@
+{
+  "name": "api-alugueisjs",
+  "version": "1.0.0",
+  "description": "Controle de alugueis",
+  "main": "babel.config",
+  "dependencies": {
+    "@babel/node": "^7.0.0",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "bcrypt": "^5.0.1",
+    "body-parser": "^1.19.2",
+    "consign": "^0.1.6",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3",
+    "pg": "^8.7.3",
+    "save": "^2.4.0",
+    "sequelize": "^4.44.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "build": "./node_modules/.bin/babel src --out-dir dist",
+    "babel-node": "babel-node src/index.js",
+    "dev": "nodemon --exec npm run babel-node",
+    "start": "npm run babel-node"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RobertoLPereira/api-alugueisjs.git"
+  },
+  "author": "Roberto Lima Pereira",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/RobertoLPereira/api-alugueisjs/issues"
+  },
+  "homepage": "https://github.com/RobertoLPereira/api-alugueisjs#readme"
+}
