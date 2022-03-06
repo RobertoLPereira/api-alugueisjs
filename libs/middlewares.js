@@ -5,8 +5,6 @@ const path = require('path');
 module.exports = app => {
 
   // Settings
-    app.set('view engine', 'ejs');
-    app.set('views',path.join(__dirname),'../views');
   	app.set('port', process.env.PORT || 3051);
   	app.set('json spaces', 4);
   //	app.use(bodyParser.urlencoded({ extended:true}));

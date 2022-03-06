@@ -2,9 +2,9 @@
   "name": "api-alugueisjs",
   "version": "1.0.0",
   "description": "Controle de alugueis",
-  "main": "src/app.js",
+  "main": "app.js",
   "dependencies": {
-   "bcrypt": "^5.0.1",
+    "bcrypt": "^5.0.1",
     "body-parser": "^1.19.2",
     "consign": "^0.1.6",
     "dotenv": "^16.0.0",
@@ -17,8 +17,8 @@
   },
   "devDependencies": {},
   "scripts": {
-     "dev": "nodemon --exec index.js",
-    "start": "node src/index.js"
+    "dev": "nodemon --exec index.js",
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
