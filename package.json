@@ -30,6 +30,11 @@
     "url": "git+https://github.com/RobertoLPereira/api-alugueisjs.git"
   },
   "author": "Roberto Lima Pereira",
+  "keywords": [
+    "node",
+    "heroku",
+    "express"
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/RobertoLPereira/api-alugueisjs/issues"
