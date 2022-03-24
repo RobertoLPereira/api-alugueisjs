@@ -48,6 +48,7 @@ module.exports = app => {
                 Contrato.sequelize.query(sql)
                     .then(result => {
                       pagamentos.idcontrato = result[0].idcontrato
+                      //Efetuar pagamento do contrato
                       Pagamentos.create(pagamentos)
                       .then(result => res.json(result))
                       .catch(error => {
