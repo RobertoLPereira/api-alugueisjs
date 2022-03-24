@@ -21,6 +21,8 @@ module.exports = app => {
           status: req.body.status,
           validadecontrato: req.body.validadecontrato,
           valor: req.body.valor,
+          taxacondominio: req.body.taxacondominio,
+          valordecaucao: req.body.valordecaucao,
           }
         //console.log(contrato)
         Contrato.create(contrato)
@@ -65,6 +67,8 @@ module.exports = app => {
           status: req.body.status,
           validadecontrato: req.body.validadecontrato,
           valor: req.body.valor,
+          taxacondominio: req.body.taxacondominio,
+          valordecaucao: req.body.valordecaucao,
           }
         Contrato.update(req.body, {where: req.params})
           .then(result => res.sendStatus(204))

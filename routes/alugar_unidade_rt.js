@@ -3,7 +3,7 @@ module.exports = app => {
     const Imovel = app.db.models.imovel;
     const Imovelunidade = app.db.models.imovelunidade;
     const Contrato = app.db.models.contrato;
-    
+    const Pagamentos = app.db.models.pagamentos;
     app.route('/AlugarNovoInquilino')
       .post((req, res) => {
         //console.log(req)
@@ -23,7 +23,14 @@ module.exports = app => {
             status: 1,
             validadecontrato: req.body.validadecontrato,
             valor: req.body.valor,
+            taxacondominio: req.body.taxacondominio,
+            valordecaucao: req.body.valordecaucao,
             }
+            var pagamentos = {
+              datapagamento: req.body.datacontrato,
+              valorpago: req.body.valor,
+              idcontrato: req.body.idcontrato,
+              }
         Pessoas.create(pessoas)
           .then(result => {
             const wimovel = "(select idimovel from imovelunidade where idunidade="+req.body.idunidade+")";
@@ -34,12 +41,19 @@ module.exports = app => {
               .then(result => { 
                 const wlocador = "(select idproprietario from imovel where idimovel="+result.idimovel+")";
                 var sql = "insert into contrato (idunidadeimovel,idlocador,idlocatario,diavencimento,datacontrato,";
-                sql += "status,validadecontrato,valor)";
+                sql += "status,validadecontrato,valor,taxacondominio,valordecaucao)";
                 sql += "values ("+result.idunidade+","+wlocador+","+contrato.idlocatario+","+contrato.diavencimento;
                 sql += ","+contrato.datacontrato+","+contrato.status+","+contrato.validadecontrato+",";
-                sql += contrato.valor+")";                
+                sql += contrato.valor+","+contrato.taxacondominio+","+contrato.valordecaucao+")";                
                 Contrato.sequelize.query(sql)
-                    .then(result => res.json(result[0]))
+                    .then(result => {
+                      pagamentos.idcontrato = result[0].idcontrato
+                      Pagamentos.create(pagamentos)
+                      .then(result => res.json(result))
+                      .catch(error => {
+                        res.status(412).json({msg: error.message});
+                      });
+                    })
                     .catch(error => {
                         res.status(412).json({msg: error.message});
                     });

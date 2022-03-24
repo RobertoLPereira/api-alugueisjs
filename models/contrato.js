@@ -10,6 +10,8 @@ datacontrato:{type:DataType.DATE},
 status:{type:DataType.INTEGER},
 validadecontrato:{type:DataType.DATE},
 valor:{type:DataType.DOUBLE},
+taxacondominio:{type:DataType.DOUBLE},
+valordecaucao:{type:DataType.DOUBLE},
  },{ freezeTableName: true,modelName: "contrato",timestamps: false,
 }); return Contrato;
 }
