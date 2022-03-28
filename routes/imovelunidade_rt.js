@@ -89,6 +89,16 @@ module.exports = app => {
             res.status(412).json({msg: error.message});
           });
       });
-
+      app.route('/AlugarUnidade/:idunidade')
+      .put((req, res) => {
+        var sqlcomando = "update imovelunidade set idlocatario="+
+        req.body.idlocatario+",status="+req.body.status+
+        " where idunidade = "  + req.body.idunidade;
+        Imovelunidade.sequelize.query(sqlcomando)        
+          .then(result => res.sendStatus(204))
+          .catch(error => {
+            res.status(412).json({msg: error.message});
+          });
+      });
 
   };
