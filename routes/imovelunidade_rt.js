@@ -5,6 +5,7 @@ module.exports = app => {
       .get((req, res) => {
         //Imovelunidade.findAll({})
         var Sql = "select imu.*,im.descricao as nomeimovel,im.endereco,im.idproprietario,im.status as situacaoimovel,Coalesce(p.nome,'Não Alugado') as nome"+
+        ",coalesce((select lt.idleituraaguaunidade from leituraaguaunidade lt where imu.idunidade=lt.idunidadeimovel and date_part('Year'::text, lt.dataleitura) = date_part('Year'::text, CURRENT_DATE) and date_part('Month'::text, lt.dataleitura) = date_part('Month'::text, CURRENT_DATE)),0) as idleituraaguaunidade"+
         " from imovelunidade imu left join imovel im on im.idimovel = imu.idimovel"+
         " left join pessoas p on p.idpessoa = imu.idlocatario";
         Imovelunidade.sequelize.query(Sql)
