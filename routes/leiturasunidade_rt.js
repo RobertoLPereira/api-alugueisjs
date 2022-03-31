@@ -54,7 +54,14 @@
             res.status(412).json({msg: error.message});
           });
       });
-
+      app.route('/Leituras')
+      .get((req, res) => {
+        Leituraaguaunidade.findAll({include: [{model: imovelunidade}]})
+          .then(result => res.json(result))
+          .catch(error => {
+            res.status(412).json({msg: error.message});
+          });
+      })
     app.route('/LeiturasUnidade/:idleituraaguaunidade')
       .get((req, res) => {
         var idleituraaguaunidade = parseInt(req.params.idleituraaguaunidade);
