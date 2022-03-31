@@ -12,7 +12,7 @@ valor:{type:DataType.DOUBLE},
  },{ freezeTableName: true,modelName: "leituraaguaunidade",timestamps: false,
 }); 
 Leituraaguaunidade.associate = function(model) {
-    Leituraaguaunidade.belongsTo(model.Imovelunidade.model, {
+    Leituraaguaunidade.belongsTo(model.imovelunidade.model, {
     foreignKey: 'idunidade',
     as: 'unidade',
   });

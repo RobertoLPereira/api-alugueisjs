@@ -56,7 +56,7 @@
       });
       app.route('/Leituras')
       .get((req, res) => {
-        Leituraaguaunidade.findAll({include: [{model: Imovelunidade}]})
+        Leituraaguaunidade.findAll({include: [{model: imovelunidade}]})
           .then(result => res.json(result))
           .catch(error => {
             res.status(412).json({msg: error.message});
