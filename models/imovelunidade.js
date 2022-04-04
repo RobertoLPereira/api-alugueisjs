@@ -7,5 +7,12 @@ idlocatario:{type:DataType.INTEGER},
 descricao:{type:DataType.STRING},
 status:{type:DataType.INTEGER},
  },{ freezeTableName: true,modelName: "imovelunidade",timestamps: false,
-}); return Imovelunidade;
+});
+Imovelunidade.associate = (models) => {
+    Imovelunidade.belongsTo(models.leituraaguaunidade, {
+        foreignKey: 'idunidade',
+        as: 'leituraaguaunidade',
+      });
+    };
+ return Imovelunidade;
 }
