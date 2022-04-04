@@ -11,11 +11,11 @@ status:{type:DataType.INTEGER},
 valor:{type:DataType.DOUBLE},
  },{ freezeTableName: true,modelName: "leituraaguaunidade",timestamps: false,
 }); 
-Leituraaguaunidade.associate = function(model) {
+/*Leituraaguaunidade.associate = function(model) {
     Leituraaguaunidade.belongsTo(model.imovelunidade.model, {
     foreignKey: 'idunidade',
     as: 'unidade',
   });
-  };
+  };*/
   return Leituraaguaunidade;
 }
