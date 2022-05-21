@@ -4,18 +4,15 @@
   "description": "Controle de alugueis",
   "main": "app.js",
   "dependencies": {
-    "bcrypt": "^5.0.1",
-    "body-parser": "^1.19.2",
+    "body-parse": "^0.1.0",
     "consign": "^0.1.6",
-    "dotenv": "^16.0.0",
-    "ejs": "^3.1.6",
-    "express": "^4.17.3",
+    "dotenv": "^16.0.1",
+    "ejs": "^3.1.7",
+    "express": "^4.18.1",
     "pg": "^8.7.3",
-    "save": "^2.4.0",
-    "sequelize": "^4.44.4",
+    "sequelize": "^6.19.0",
     "sequelize-views-support": "^1.2.2"
   },
-  "devDependencies": {},
   "scripts": {
     "dev": "nodemon --exec index.js",
     "start": "node index.js"
