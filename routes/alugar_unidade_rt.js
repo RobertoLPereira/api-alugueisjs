@@ -80,7 +80,7 @@ module.exports = app => {
           });
       });
 
-    app.route('/Pessoas/:idpessoas')
+    app.route('/Alugar/:idpessoas')
       .get((req, res) => {
         var idpessoas = parseInt(req.params.idpessoas);
         Pessoas.findOne({where:idpessoas})
@@ -95,7 +95,7 @@ module.exports = app => {
             res.status(412).json({msg: error.message});
           });
       })
-      app.route('/pessoasM/:idpessoa')
+      app.route('/AlugarM/:idpessoa')
       .get((req, res) => {
         var idpessoa = parseInt(req.params.idpessoa);
         Pessoas.sequelize.query("select ai.* from pessoas ai where ai.idpessoa="+idpessoa)
@@ -111,7 +111,7 @@ module.exports = app => {
             res.status(204).json({msg: error.message});
           });
       });
-      app.route('/DesativarPessoa/:idpessoa')
+      app.route('/EncerrarContrato/:idpessoa')
       .put((req, res) => {
         var comandoSql = "update pessoas set status=2 where idpessoa="+parseInt(req.params.idpessoa);
         Pessoas.sequelize.query(comandoSql)
@@ -120,30 +120,13 @@ module.exports = app => {
             res.status(412).json({msg: error.message});
           });
       });
-      app.route('/AtivarPessoa/:idpessoa')
+      app.route('/AtivarContrato/:idpessoa')
       .put((req, res) => {
         var comandoSql = "update pessoas set status=1 where idpessoa="+parseInt(req.params.idpessoa);
         Pessoas.sequelize.query(comandoSql)
           .then(result => res.sendStatus(204))
           .catch(error => {
             res.status(412).json({msg: error.message});
-          });
-      });
-       app.route('/ValidarLogin/:telefone')
-      .get((req, res) => {
-        var comandoSql = "select * from pessoas where telefone='"+req.params.telefone+"'";
-        Pessoas.sequelize.query(comandoSql)
-          .then(result => {
-            console.log(result[0].length);
-            console.log(result[0]);
-            if (result[0].length > 0) {
-              res.sendStatus(204);
-            } else  {
-              res.sendStatus(412);
-            }
-          })
-          .catch(error => {
-            res.status(405).json({msg: error.message});
           });
       });
 

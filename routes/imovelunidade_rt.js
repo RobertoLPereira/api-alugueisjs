@@ -40,7 +40,14 @@ module.exports = app => {
             res.status(412).json({msg: error.message});
           });
       });
-
+      app.route('/Unidades')
+      .get((req, res) => {
+        Imovelunidade.findAll({})
+          .then(result => res.json(result))
+          .catch(error => {
+            res.status(412).json({msg: error.message});
+          });
+      });
     app.route('/Imovelunidade/:idimovelunidade')
       .get((req, res) => {
         var idimovelunidade = parseInt(req.params.idimovelunidade);

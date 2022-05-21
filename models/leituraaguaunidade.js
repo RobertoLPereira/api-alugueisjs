@@ -2,7 +2,7 @@ const sequelizeBd = require("../libs/conect");
 module.exports = (sequelize, DataType) => {
     const Leituraaguaunidade = sequelizeBd.define("leituraaguaunidade",
     {idleituraaguaunidade:{type:DataType.INTEGER,primaryKey: true,autoIncrement: true},
-idunidadeimovel:{type:DataType.INTEGER},
+idunidade:{type:DataType.INTEGER},
 leituraanterior:{type:DataType.DOUBLE},
 leituraatual:{type:DataType.DOUBLE},
 codigomedidor:{type:DataType.INTEGER},
